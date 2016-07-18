@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='scrapy-hcf',
-    version='0.1.0',
+    version='1.0.0',
     license='BSD',
     description='Scrapy spider middleware to use Scrapinghub\'s Hub Crawl Frontier as a backend for URLs',
     author='Scrapinghub',
