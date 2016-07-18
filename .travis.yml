@@ -13,4 +13,15 @@ install: pip install -U tox codecov
 script: tox
 
 after_success:
-  - codecov
+- codecov
+
+deploy:
+  provider: pypi
+  distributions: sdist bdist_wheel
+  user: redapple
+  password:
+    secure: sy1tcHEnyqNyAYbtKQtVXYPyGPbNq+XPqwf0pt+XRzroTQ1bHtEUqtxvc3DLbdYsEn+lWKJkdt7b3fWqWru3Aq0dqc/xLwmUJrmC1oioskN1HCm33OjQr9t+2Kon3xyEVcdffpFDJF4FIimY/EgIPtkXQbi9sEcbH7u1+7PnWIYohwMCeAhAHusqpFzP7zwgMuNVRXNz2mn9+WFJJMv56dYN9RUDEZchLaIuFsx3R+L5R8Dd8ClOjS6z5yUSqHPJp0YamLiBqsSSV04hH6u4ph9HCyBkR4lOajBjc5jqpleGxZwpBACiHzmhL+GcEteteeBik5YqV6cG4iI6fmivEu4f5+FNkPM1mA3dbAZeLE7QDZmdwOTpuZn4xpUY+geeeuNNciM+zQbUURYMECqKIaWLufQVX+gThxZysGHjjOShhEERQRgcv1/nHVVC+OGWj6x3PadVNqt5rS87OOXFUnI/MM5qRJ1p8eMvVuvoliwybiYdjD/94F0faKN2M3yoSPqmYgsXl7UEd6dPTBtU8UPW24ljPhKgQZuGKIMgXh10nAGJqwKz3OHFZIrooWxT6lnmc9bPY3ZGIgpmytsuoO6NeljdQ/ZGkd2IV7faEQV/rKgW2L9fzHDtws47B4rLbc91yEL9gWwGYOh9S6XW1CGs46+U+m2boRSloJOLffc=
+  on:
+    tags: true
+    repo: scrapy-plugins/scrapy-hcf
+    condition: $TOXENV = py35
